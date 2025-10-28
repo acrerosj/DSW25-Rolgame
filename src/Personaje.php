@@ -15,4 +15,15 @@ abstract class Personaje {
     public function subirNivel():void {
         $this->nivel++;
     }
+
+    public static function lucha(Personaje $atacante, Personaje $defensor): void
+    {
+        $daño = $atacante->atacar();
+        $dañoFinal = $defensor->defender($daño);
+        $defensor->puntosDeVida -= $dañoFinal;
+
+        $daño = $defensor->atacar();
+        $dañoFinal = $atacante->defender($daño);
+        $atacante->puntosDeVida -= $dañoFinal;
+    }
 }

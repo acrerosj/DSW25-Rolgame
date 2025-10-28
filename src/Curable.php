@@ -3,5 +3,5 @@ namespace Dsw\Rolgame;
 
 interface Curable {
 
-    public function curar():void;
+    public function curar(): int;
 }
